@@ -47,11 +47,11 @@ async function getJokes() {
         
     // Programer jokes ... no nsfw, etc.
 
-    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist';
+   // const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist';
     
     // Dark, offensive, sexist, explicit, etc. === a good time
 
-   // const apiUrl = 'https://v2.jokeapi.dev/joke/Dark';
+    const apiUrl = 'https://v2.jokeapi.dev/joke/Dark';
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
