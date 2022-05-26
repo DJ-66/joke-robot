@@ -10,19 +10,19 @@ function toggleButton() {
 button.disabled = !button.disabled;
 }
 
-function test() {
-    VoiceRSS.speech({
-        key: 'f5538a88d2224a539303f2f6f13839c8',
-        src: 'Click the button below for some lame ass JOKES',
-        hl: 'en-us',
-        v: 'Linda',
-        r: -1, 
-        c: 'mp3',
-        f: '44khz_16bit_stereo',
-        ssml: false
-    });
-    toggleButton();
-}
+// function test() {
+//     VoiceRSS.speech({
+//         key: 'f5538a88d2224a539303f2f6f13839c8',
+//         src: 'Click the button below for some lame ass JOKES',
+//         hl: 'en-us',
+//         v: 'Linda',
+//         r: -1, 
+//         c: 'mp3',
+//         f: '44khz_16bit_stereo',
+//         ssml: false
+//     });
+//     toggleButton();
+// }
 
 
 // Passing Joke text from JokeApi to VoiceRSS API
@@ -49,9 +49,9 @@ async function getJokes() {
 
    // const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist';
     
-    // Dark, offensive, sexist, explicit, etc. === a good time
+    // Dark, offensive, NSFW
 
-    const apiUrl = 'https://v2.jokeapi.dev/joke/Dark';
+    const apiUrl = 'https://v2.jokeapi.dev/joke/Dark?blacklistFlags=nsfw,sexist';
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -73,4 +73,6 @@ async function getJokes() {
 // Event Listeners
 button.addEventListener('click', getJokes);
 audioElement.addEventListener('ended', toggleButton);
+
+// eliminated test() feature would not run on mobile device
 //test();
